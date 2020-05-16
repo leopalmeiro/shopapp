@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/providers/cart.dart';
-import 'package:shopapp/providers/products.dart';
-import 'package:shopapp/utils/app_routes.dart';
-import 'package:shopapp/views/product_detail_screen.dart';
+import 'package:shopapp/views/cartScreen.dart';
 import 'package:shopapp/views/products_overview_screen.dart';
+import './providers/cart.dart';
+import './providers/products.dart';
+import './utils/app_routes.dart';
+import './views/product_detail_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,8 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => new Products()),
-        ChangeNotifierProvider(create: (_) => new Cart()),
+        ChangeNotifierProvider(
+          create: (_) => new Products(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => new Cart(),
+        ),
       ],
       child: MaterialApp(
         title: 'Minha Loja',
@@ -23,9 +28,11 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
         ),
-        home: ProductsOverviewScreen(),
+        home: ProductOverviewScreen(),
         routes: {
+          //AppRoutes.HOME: (ctx) => ProductOverviewScreen(),
           AppRoutes.PRODUCT_DETAIL: (ctx) => ProductDetailScreen(),
+          AppRoutes.CART: (ctx) => CartScreen(),
         },
       ),
     );

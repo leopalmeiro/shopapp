@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopapp/providers/cart.dart';
-import 'package:shopapp/providers/product.dart';
-import 'package:shopapp/utils/app_routes.dart';
+import '../providers/product.dart';
+import '../providers/cart.dart';
+import '../utils/app_routes.dart';
 
 class ProductItem extends StatelessWidget {
   @override
@@ -19,12 +19,6 @@ class ProductItem extends StatelessWidget {
               AppRoutes.PRODUCT_DETAIL,
               arguments: product,
             );
-/*             Navigator.of(context).push(
-                //uma forma de navegar
-                MaterialPageRoute(
-                  builder: (ctx) => ProductDetailScreen(),
-                ),
-              ); */
           },
           child: Image.network(
             product.imageUrl,
@@ -52,7 +46,6 @@ class ProductItem extends StatelessWidget {
             color: Theme.of(context).accentColor,
             onPressed: () {
               cart.addItem(product);
-              print(cart.itemCount);
             },
           ),
         ),
