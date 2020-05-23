@@ -21,7 +21,7 @@ class _OrderWidgetState extends State<OrderWidget> {
       child: Column(
         children: <Widget>[
           ListTile(
-            title: Text('R\$ ${widget.order.amount.toStringAsFixed(2)}'),
+            title: Text('R\$ ${widget.order.total.toStringAsFixed(2)}'),
             subtitle:
                 Text(DateFormat('dd/MM/yyyy hh:mm').format(widget.order.date)),
             trailing: IconButton(
