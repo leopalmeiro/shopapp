@@ -68,6 +68,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
     _descriptionFocusNode.dispose();
     _imageUrlFocusNode.removeListener(_updateImage);
     _imageUrlFocusNode.dispose();
+    
   }
 
   //with async
